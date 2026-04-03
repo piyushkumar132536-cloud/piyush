@@ -1,0 +1,72 @@
+using System;
+
+
+class Person
+{
+    
+    public string name;
+    public int age;
+
+    
+    public Person(string name, int age)
+    {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void DisplayPerson()
+    {
+        Console.WriteLine("Name: " + name);
+        Console.WriteLine("Age: " + age);
+    }
+}
+
+
+class Student : Person
+{
+    public string course;
+
+    public Student(string name, int age, string course)
+        : base(name, age)
+    {
+        this.course = course;
+    }
+
+    public void DisplayStudent()
+    {
+        DisplayPerson();
+        Console.WriteLine("Course: " + course);
+    }
+}
+
+
+class Teacher : Person
+{
+    public string subject;
+
+    public Teacher(string name, int age, string subject)
+        : base(name, age)
+    {
+        this.subject = subject;
+    }
+
+    public void DisplayTeacher()
+    {
+        DisplayPerson();
+        Console.WriteLine("Subject: " + subject);
+    }
+}
+
+
+class Program
+{
+    static void Main()
+    {
+        Student s = new Student("Alice", 20, "Computer Science");
+        Teacher t = new Teacher("Bob", 40, "Mathematics");
+
+        s.DisplayStudent();
+        Console.WriteLine();
+        t.DisplayTeacher();
+    }
+}
